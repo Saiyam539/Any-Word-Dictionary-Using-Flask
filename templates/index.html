@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Any Word Dictionary</title>
+
+    <style>
+        h1 {
+            color: white;
+            font-size: 40px;
+        }
+
+        body {
+            background-color: rgba(255, 103, 103, 0.828);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            background-size: cover;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 50%;
+            height: 100%;
+            margin: 0 auto;
+            background-color: #fb9898;
+            border-radius: 20px;
+            font-size: 30px;
+            padding: 20px;
+            border: 10px solid black;
+        }
+/*
+        form input {
+            height: 30px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            margin: 20px;
+        } */
+
+        form input:focus {
+            height: 30px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 20px;
+            margin: 20px;
+            cursor: pointer;
+        }
+
+        form input:hover {
+            background-color: #ffcaca;
+        }
+        form input{
+            border-radius: 5px;
+            font-size: 20px;
+            padding: 10px;
+            cursor: pointer;
+            background-color: #ffa9a9;
+            border: 2px solid black;
+            margin: 20px;
+        }
+        form input:hover{
+            background-color: #ff6262;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Any Word Dictionary</h1>
+    <form action="dictionary" method="post">
+        <label for="text">Enter the word below</label>
+        <input id="word" type="text" name="word" placeholder="Enter a word">
+        <input id="button" type="submit" value="Search">
+        {%for message in get_flashed_messages()%}
+        <h4>{{message}}</h4>
+        {%endfor%}
+    </form>
+
+</body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.6.1/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+        apiKey: "AIzaSyDJEVNn3cTlVgRIhl5zoxEYdAbM0P05ivw",
+        authDomain: "any-word-dictionary.firebaseapp.com",
+        projectId: "any-word-dictionary",
+        storageBucket: "any-word-dictionary.appspot.com",
+        messagingSenderId: "485560965533",
+        appId: "1:485560965533:web:4be985ce5b6175279e3774",
+        measurementId: "G-CDM09MX9V3"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>
+
+</html>
